@@ -16,11 +16,6 @@
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "mongodb": "^4.1.1",
-    "mongoose": "^6.0.4",
-    "nodemon": "^2.0.12",
-    "path": "^0.12.7",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.5"
