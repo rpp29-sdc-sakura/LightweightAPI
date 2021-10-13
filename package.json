@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
-    "start": "nodemon apiServer/index.js"
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
