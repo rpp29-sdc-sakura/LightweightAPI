@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./apiServer/index.js",
     "test": "jest"
   },
   "author": "",
@@ -17,7 +18,7 @@
     "express": "^4.17.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.6.5"
+    "redis": "^3.1.2"
   },
   "devDependencies": {
     "jest": "^27.1.1"

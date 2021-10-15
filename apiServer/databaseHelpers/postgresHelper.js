@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const { Client, Pool } = require('pg');
 
 const pool = new Pool({
-  host: 'ec2-54-146-195-234.compute-1.amazonaws.com',
+  host: 'ec2-3-91-100-73.compute-1.amazonaws.com',
   user: 'postgres',
   database: 'loom_related',
   port: 5432,

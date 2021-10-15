@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { getParser } = require('./middleware.js');
 const db = require('./databaseHelpers/postgresHelper.js');
+const { redisClient, cacheCheck } = require('./databaseHelpers/redisHelper.js')
 
 const app = express();
 const PORT = 7778;
@@ -9,12 +10,17 @@ app.listen(PORT, () => { console.log(`API server now listening on port ${PORT}..
 
 app.use(bodyParser.json())
 app.use(getParser);
+app.use(cacheCheck);
 
 app.get('/', (req, res) => {
-  // console.log('body recieved: ', JSON.stringify(req.body));
+  console.log('body recieved: ', JSON.stringify(req.body));
   db.getIds(req.body.productId)
     .then((result) => {
       console.log('retrieval successful');
+      redisClient.setAsync(JSON.stringify(req.body.productId), JSON.stringify(result.rows[0].relatedids))
+        .then((result) => {
+          console.log('added to cache');
+        })
       res.status(200).send(result.rows[0].relatedids);
     })
     .catch((err) => {
